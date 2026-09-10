@@ -1,16 +1,6 @@
 # dubizzle Cars AI Assistant
 
-A conversational assistant that helps users explore a car inventory, book viewings, and get recognized when they come back. Built with **FastAPI**, **Streamlit**, **LiteLLM + Gemini**, and **SQLite**, managed with **uv**.
-
-**What it can do**
-
-- Search the inventory in natural language ("family SUV under 150k", "any red cars?") and answer only from real listings
-- Answer follow-ups about a car without the user restating it ("tell me about the first one", "does it have a warranty?")
-- Book viewings and test drives (Monday to Saturday, 08:00-20:00, 1-hour slots) with double-booking protection
-- Collect budget and needs during the conversation and record them as qualified leads in `data/leads.csv`
-- Recognize returning users by name and recall their budget, preferences, liked cars, and upcoming viewings in a brand new session
-- Decline non-automotive requests and never mention competitors
-
+A conversational assistant that helps users explore a car inventory, book viewings, and get recognized when they come back. Built with **FastAPI**, **Streamlit**, **LiteLLM + Gemini**, **SQLite**, **uv**.
 ---
 
 ## Quick start
