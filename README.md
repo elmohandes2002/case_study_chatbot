@@ -116,7 +116,7 @@ The provided dataset differed from the brief in a few ways. Rather than block on
 - **Seller contact details in descriptions.** Many listings include phone numbers and external websites. The agent never shares these and offers to book a viewing through dubizzle instead.
 - **Viewing slots** are assumed to be 1 hour, starting on the hour from 08:00 to 19:00, in UAE time (UTC+4).
 
-### Lead qualification
+## Lead qualification
 
 Leads are updated as the conversation reveals information and mirrored to `data/leads.csv`:
 
@@ -126,7 +126,7 @@ Leads are updated as the conversation reveals information and mirrored to `data/
 | `qualified` | Budget and phone number known |
 | `hot` | Booked a viewing |
 
-### Guardrails
+## Guardrails
 
 The system prompt restricts the agent to cars and dubizzle services, forbids mentioning competitors or inventing services and policies, and requires every car mentioned to come from a tool result. Tool results are the only source of listing facts, and if a detail is missing, the agent says the listing doesn't mention it.
 
