@@ -20,11 +20,13 @@ cd dubizzle-car-assistant
 uv sync
 ```
 
-4. Add your API key
+4. Create the .env file (in PowerShell, from the project folder)
+
+Replace your_key_here with your Gemini API key, and the model with any Gemini model available to your key (I used gemini-3.6-flash for testing):
 
 ```bash
-cp .env.example .env            # Windows PowerShell: Copy-Item .env.example .env
-# then open .env and paste your Gemini key
+Set-Content .env "GEMINI_API_KEY=your_key_here"
+Add-Content .env "GEMINI_MODEL=gemini/gemini-3.6-flash"
 ```
 
 Run the backend and the client in **two separate terminals**:
@@ -37,7 +39,7 @@ uv run uvicorn main:app --reload
 uv run streamlit run app.py
 ```
 
-Open http://localhost:8501, enter a name in the sidebar, and start chatting. To see long-term memory, chat for a bit, click **New session**, and say "Hi".
+Open http://localhost:8501, enter a name in the sidebar (this can be updated later to a proper sign up system, for now it functions as a username which will be used in another session to retrieve data about the client), and start chatting. To see long-term memory, chat for a bit, click **New session**, or reopen http://localhost:8501 and enter the same username and say "Hi".
 
 On first start, the backend builds `data/dubizzle.db` from `data/cars.xlsx` and applies the pre-computed enrichment in `data/enrichment.json`, so **no API calls are spent on setup**.
 
