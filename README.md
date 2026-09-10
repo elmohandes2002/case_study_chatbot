@@ -6,7 +6,9 @@ A conversational assistant that helps users explore a car inventory, book viewin
 
 ## Quick start
 
-**Prerequisites:** Follow the instructions on the website to install based on your machine [uv](https://docs.astral.sh/uv/getting-started/installation/) and a free Gemini API key from [Google AI Studio](https://aistudio.google.com/apikey).
+**Prerequisites:** 
+UV: Follow the instructions on the website to install based on your machine [uv](https://docs.astral.sh/uv/getting-started/installation/) 
+Free Gemini API key from [Google AI Studio](https://aistudio.google.com/apikey).
 
 ```bash
 # 1. Clone and install dependencies (uv creates the virtual environment and installs exact locked versions)
