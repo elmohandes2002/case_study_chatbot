@@ -8,9 +8,9 @@ A conversational assistant that helps users explore a car inventory, book viewin
 
 **Prerequisites:**
 
-1. uv: It is an all-in-one Python package and project manager. Follow the instructions on the website to install uv based on your machine from here [uv](https://docs.astral.sh/uv/getting-started/installation/) 
+1. uv is an all-in-one Python package and project manager. Follow the instructions on the website to install uv based on your machine from here: [uv](https://docs.astral.sh/uv/getting-started/installation/) 
 
-2. Free Gemini API key: [Google AI Studio](https://aistudio.google.com/apikey).
+2. Free Gemini API key from here: [Google AI Studio](https://aistudio.google.com/apikey).
 
 ```bash
 # 1. Clone and install dependencies (uv creates the virtual environment and installs exact locked versions)
