@@ -12,7 +12,7 @@ A conversational assistant that helps users explore a car inventory, book viewin
 
 2. Free Gemini API key from here: [Google AI Studio](https://aistudio.google.com/apikey).
 
-3. Clone and install dependencies (uv creates the virtual environment and installs all necessary packages)
+3. Clone and install dependencies (uv creates the virtual environment and installs all necessary packages. the packages we used were: fastapi, uvicorn, streamlit, httpx, litellm, tenacity, pandas, openpyxl, python-dotenv)
 
 ```bash
 git clone <REPO_URL>
@@ -43,15 +43,7 @@ Open http://localhost:8501, enter a name in the sidebar (this can be updated lat
 
 On first start, the backend builds `data/dubizzle.db` from `data/cars.xlsx` and applies the pre-computed enrichment in `data/enrichment.json`, so **no API calls are spent on setup**.
 
-### Configuration (`.env`)
-
-| Variable | Purpose |
-|---|---|
-| `GEMINI_API_KEY` | Your Google AI Studio key (required) |
-| `GEMINI_MODEL` | Model used for chat, e.g. `gemini/gemini-3.6-flash` |
-| `ENRICH_MODEL` | Model used only by `enrich.py` (optional, defaults to `GEMINI_MODEL`) |
-
-**A note on the Gemini free tier:** model availability and limits change often, and limits can be low (during development I saw 20 requests/day on some models and 5 requests/minute on others). If you get a `404` or `429` error, run `uv run python list_models.py` to see the models your key can use, and switch `GEMINI_MODEL` in `.env`. Each chat turn uses 1-3 requests depending on how many tools the agent calls.
+**A note on the Gemini free tier:** model availability and limits change often, and limits can be low (during development I saw 20 requests/day on some models and 5 requests/minute on others). If you get an error regarding the models, run `uv run python list_models.py` to see the models your key can use, and switch `GEMINI_MODEL` in `.env`. Each chat turn uses 1-3 requests depending on how many tools the agent calls.
 
 ---
 
