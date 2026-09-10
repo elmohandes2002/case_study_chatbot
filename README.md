@@ -6,7 +6,7 @@ A conversational assistant that helps users explore a car inventory, book viewin
 
 - Search the inventory in natural language ("family SUV under 150k", "any red cars?") and answer only from real listings
 - Answer follow-ups about a car without the user restating it ("tell me about the first one", "does it have a warranty?")
-- Book viewings and test drives (Monday to Saturday, 08:00–20:00, 1-hour slots) with double-booking protection
+- Book viewings and test drives (Monday to Saturday, 08:00-20:00, 1-hour slots) with double-booking protection
 - Collect budget and needs during the conversation and record them as qualified leads in `data/leads.csv`
 - Recognize returning users by name and recall their budget, preferences, liked cars, and upcoming viewings in a brand new session
 - Decline non-automotive requests and never mention competitors
@@ -31,10 +31,10 @@ cp .env.example .env            # Windows PowerShell: Copy-Item .env.example .en
 Run the backend and the client in **two separate terminals**:
 
 ```bash
-# Terminal 1 — FastAPI backend (http://localhost:8000, docs at /docs)
+# Terminal 1 - FastAPI backend (http://localhost:8000, docs at /docs)
 uv run uvicorn main:app --reload
 
-# Terminal 2 — Streamlit client (http://localhost:8501)
+# Terminal 2 - Streamlit client (http://localhost:8501)
 uv run streamlit run app.py
 ```
 
@@ -50,22 +50,22 @@ On first start, the backend builds `data/dubizzle.db` from `data/cars.xlsx` and 
 | `GEMINI_MODEL` | Model used for chat, e.g. `gemini/gemini-3.6-flash` |
 | `ENRICH_MODEL` | Model used only by `enrich.py` (optional, defaults to `GEMINI_MODEL`) |
 
-**A note on the Gemini free tier:** model availability and limits change often, and limits can be low (during development I saw 20 requests/day on some models and 5 requests/minute on others). If you get a `404` or `429` error, run `uv run python list_models.py` to see the models your key can use, and switch `GEMINI_MODEL` in `.env`. Each chat turn uses 1–3 requests depending on how many tools the agent calls.
+**A note on the Gemini free tier:** model availability and limits change often, and limits can be low (during development I saw 20 requests/day on some models and 5 requests/minute on others). If you get a `404` or `429` error, run `uv run python list_models.py` to see the models your key can use, and switch `GEMINI_MODEL` in `.env`. Each chat turn uses 1-3 requests depending on how many tools the agent calls.
 
 ---
 
 ## Architecture
 
 ```
-┌──────────────┐   HTTP (JSON)   ┌─────────────────────────────────────────────┐
-│  Streamlit   │ ──────────────▶ │  FastAPI (main.py)                          │
-│  (app.py)    │ ◀────────────── │   └─ agent.py  ── LiteLLM ──▶ Gemini        │
-│  UI only     │                 │        │  tool-calling loop                 │
-└──────────────┘                 │        ├─ tools.py   search, booking, leads │
-                                 │        └─ memory.py  sessions, profiles     │
-                                 │                 │                           │
-                                 │        SQLite (data/dubizzle.db) + leads.csv│
-                                 └─────────────────────────────────────────────┘
++--------------+   HTTP (JSON)   +----------------------------------------------+
+|  Streamlit   | --------------> |  FastAPI (main.py)                           |
+|  (app.py)    | <-------------- |   +-- agent.py  -- LiteLLM --> Gemini        |
+|  UI only     |                 |        |  tool-calling loop                  |
++--------------+                 |        +-- tools.py   search, booking, leads |
+                                 |        +-- memory.py  sessions, profiles     |
+                                 |                 |                            |
+                                 |   SQLite (data/dubizzle.db) + leads.csv      |
+                                 +----------------------------------------------+
 ```
 
 | File | Responsibility |
@@ -135,7 +135,7 @@ The system prompt restricts the agent to cars and dubizzle services, forbids men
 ## Screenshots
 
 ### 1. Multi-turn inventory conversation
-<!-- Add screenshot: search → follow-up about "the first one" → warranty question → booking -->
+<!-- Add screenshot: search -> follow-up about "the first one" -> warranty question -> booking -->
 
 ### 2. Returning user recalled in a new session
-<!-- Add screenshot: new session, "Hi" → greeted by name with budget/preferences/viewing recalled, sidebar memory panel open -->
+<!-- Add screenshot: new session, "Hi" -> greeted by name with budget/preferences/viewing recalled, sidebar memory panel open -->
