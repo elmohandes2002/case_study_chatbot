@@ -1,31 +1,32 @@
 # dubizzle Cars AI Assistant
 
-A conversational assistant that helps users explore a car inventory, book viewings, and get recognized when they come back. Built with **FastAPI**, **Streamlit**, **LiteLLM + Gemini**, and **SQLite**, managed with **uv**.
-
-**What it can do**
-
-- Search the inventory in natural language ("family SUV under 150k", "any red cars?") and answer only from real listings
-- Answer follow-ups about a car without the user restating it ("tell me about the first one", "does it have a warranty?")
-- Book viewings and test drives (Monday to Saturday, 08:00-20:00, 1-hour slots) with double-booking protection
-- Collect budget and needs during the conversation and record them as qualified leads in `data/leads.csv`
-- Recognize returning users by name and recall their budget, preferences, liked cars, and upcoming viewings in a brand new session
-- Decline non-automotive requests and never mention competitors
+A conversational assistant that helps users explore a car inventory, book viewings, and get recognized when they come back. Built with **FastAPI**, **Streamlit**, **LiteLLM + Gemini**, **SQLite**, **uv**.
 
 ---
 
 ## Quick start
 
-**Prerequisites:** [uv](https://docs.astral.sh/uv/getting-started/installation/) and a free Gemini API key from [Google AI Studio](https://aistudio.google.com/apikey).
+**Prerequisites:**
+
+1. uv is an all-in-one Python package and project manager. Follow the instructions on the website to install uv based on your machine from here: [uv](https://docs.astral.sh/uv/getting-started/installation/). 
+
+2. Free Gemini API key from here: [Google AI Studio](https://aistudio.google.com/apikey).
+
+3. Clone and install dependencies (uv creates the virtual environment and installs all necessary packages. the packages we used were: fastapi, uvicorn, streamlit, httpx, litellm, tenacity, pandas, openpyxl, python-dotenv)
 
 ```bash
-# 1. Clone and install dependencies (uv creates the virtual environment and installs exact locked versions)
 git clone <REPO_URL>
 cd dubizzle-car-assistant
 uv sync
+```
 
-# 2. Add your API key
-cp .env.example .env            # Windows PowerShell: Copy-Item .env.example .env
-# then open .env and paste your Gemini key
+4. Create the .env file (in PowerShell, from the project folder)
+
+Replace your_key_here with your Gemini API key, and the model with any Gemini model available to your key (I used gemini-3.6-flash for testing):
+
+```bash
+Set-Content .env "GEMINI_API_KEY=your_key_here"
+Add-Content .env "GEMINI_MODEL=gemini/gemini-3.6-flash"
 ```
 
 Run the backend and the client in **two separate terminals**:
@@ -38,65 +39,17 @@ uv run uvicorn main:app --reload
 uv run streamlit run app.py
 ```
 
-Open http://localhost:8501, enter a name in the sidebar, and start chatting. To see long-term memory, chat for a bit, click **New session**, and say "Hi".
+Open http://localhost:8501, enter a name in the sidebar (this can be updated later to a proper sign up system, for now it functions as a username which will be used in another session to retrieve data about the client), and start chatting. To see long-term memory, chat for a bit, click **New session**, or reopen http://localhost:8501 and enter the same username and say "Hi".
 
 On first start, the backend builds `data/dubizzle.db` from `data/cars.xlsx` and applies the pre-computed enrichment in `data/enrichment.json`, so **no API calls are spent on setup**.
 
-### Configuration (`.env`)
-
-| Variable | Purpose |
-|---|---|
-| `GEMINI_API_KEY` | Your Google AI Studio key (required) |
-| `GEMINI_MODEL` | Model used for chat, e.g. `gemini/gemini-3.6-flash` |
-| `ENRICH_MODEL` | Model used only by `enrich.py` (optional, defaults to `GEMINI_MODEL`) |
-
-**A note on the Gemini free tier:** model availability and limits change often, and limits can be low (during development I saw 20 requests/day on some models and 5 requests/minute on others). If you get a `404` or `429` error, run `uv run python list_models.py` to see the models your key can use, and switch `GEMINI_MODEL` in `.env`. Each chat turn uses 1-3 requests depending on how many tools the agent calls.
+**A note on the Gemini free tier:** model availability and limits change often, and limits can be low (during development I saw 20 requests/day on some models and 5 requests/minute on others). If you get an error regarding the models, run `uv run python list_models.py` to see the models your key can use, and switch `GEMINI_MODEL` in `.env`. Each chat turn uses 1-3 requests depending on how many tools the agent calls.
 
 ---
 
-## Architecture
+## Architecture choices
 
-```
-+--------------+   HTTP (JSON)   +----------------------------------------------+
-|  Streamlit   | --------------> |  FastAPI (main.py)                           |
-|  (app.py)    | <-------------- |   +-- agent.py  -- LiteLLM --> Gemini        |
-|  UI only     |                 |        |  tool-calling loop                  |
-+--------------+                 |        +-- tools.py   search, booking, leads |
-                                 |        +-- memory.py  sessions, profiles     |
-                                 |                 |                            |
-                                 |   SQLite (data/dubizzle.db) + leads.csv      |
-                                 +----------------------------------------------+
-```
-
-| File | Responsibility |
-|---|---|
-| `main.py` | API layer only: request validation (Pydantic) and routing |
-| `agent.py` | System prompt, tool definitions, and the LLM tool-calling loop |
-| `tools.py` | Inventory search, car details, viewing availability and booking, lead recording |
-| `memory.py` | Session persistence (short-term) and user profiles (long-term) |
-| `database.py` | SQLite schema and loading the Excel dataset |
-| `enrich.py` | One-time LLM extraction of price, mileage, body type, color, and warranty from descriptions |
-| `app.py` | Streamlit chat client; contains no AI or business logic |
-| `list_models.py` | Helper that lists Gemini models available to your key |
-
-### API endpoints
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/chat` | Send a message (`user_id`, `session_id`, `message`), get the agent's reply |
-| `GET` | `/cars` | List inventory |
-| `GET` | `/cars/{listing_id}` | Full details of one listing |
-| `GET` | `/users/{user_id}/profile` | What the system remembers about a user |
-| `GET` | `/sessions/{session_id}/messages` | Full history of a conversation |
-| `GET` | `/health` | Health check |
-
-Interactive documentation is available at http://localhost:8000/docs.
-
----
-
-## Why these choices
-
-**Client: Streamlit.** The goal is a product demo, so a reactive chat UI is closer to what a dubizzle user would actually experience than a notebook, and it makes the returning-user flow easy to show (a name field, a "New session" button, and a sidebar panel displaying what the assistant remembers). Streamlit contains no AI logic; it only renders and forwards messages, so it could be swapped for a mobile app without touching the backend. **Agent framework: LiteLLM with a hand-written tool loop** rather than a heavier framework like LangChain. The agent needs only a few tools and a simple loop, and writing it directly keeps the behavior transparent and easy to control, while LiteLLM keeps the model provider swappable through one line in `.env`. **Retrieval: function calling over SQL** rather than vector RAG or text-to-SQL. Users mostly filter on structured attributes (make, year, price, body type), which SQL handles exactly; a keyword filter over titles and descriptions covers features like "sunroof". With 100 listings, a vector database would add complexity without improving accuracy. Parameterized tool functions are also safer and more predictable than letting the model write raw SQL, and the model can only describe cars that a tool actually returned. **Memory: SQLite**, a single file with no setup, which stores listings, sessions, messages, bookings, leads, and users together.
+**Client: Streamlit**, because a chat UI is closer to the real user experience than a notebook and makes the returning-user flow easy to demonstrate; it holds no AI logic, so it could be replaced without touching the backend. **Agent framework: LiteLLM with a hand-written tool loop** instead of a heavier framework like LangChain, since a few tools and a simple loop are easier to control and debug, and LiteLLM keeps the model provider swappable. **Retrieval: function calling over SQL**, because users mostly filter on structured fields like make, year, and price, which SQL matches exactly, while a keyword filter covers descriptive features; a vector database adds little for 100 listings, and fixed tool functions are safer than model-written SQL. **Memory: SQLite**, a single zero-setup file holding listings, sessions, bookings, leads, and user profiles.
 
 ## Implementation
 
