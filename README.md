@@ -12,13 +12,17 @@ A conversational assistant that helps users explore a car inventory, book viewin
 
 2. Free Gemini API key from here: [Google AI Studio](https://aistudio.google.com/apikey).
 
+3. Clone and install dependencies (uv creates the virtual environment and installs all necessary packages)
+
 ```bash
-# 1. Clone and install dependencies (uv creates the virtual environment and installs exact locked versions)
 git clone <REPO_URL>
 cd dubizzle-car-assistant
 uv sync
+```
 
-# 2. Add your API key
+4. Add your API key
+
+```bash
 cp .env.example .env            # Windows PowerShell: Copy-Item .env.example .env
 # then open .env and paste your Gemini key
 ```
