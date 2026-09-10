@@ -1,0 +1,802 @@
+[
+  {
+    "listing_id": 1,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": "silver",
+    "warranty": null
+  },
+  {
+    "listing_id": 2,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 3,
+    "price_aed": 119750,
+    "mileage_km": 68000,
+    "body_type": "suv",
+    "color": null,
+    "warranty": "GCC warranty"
+  },
+  {
+    "listing_id": 4,
+    "price_aed": null,
+    "mileage_km": 56000,
+    "body_type": "coupe",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 5,
+    "price_aed": null,
+    "mileage_km": 48000,
+    "body_type": "coupe",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 6,
+    "price_aed": 30500,
+    "mileage_km": 120000,
+    "body_type": "hatchback",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 7,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "pickup",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 8,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 9,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 10,
+    "price_aed": null,
+    "mileage_km": 42000,
+    "body_type": "convertible",
+    "color": null,
+    "warranty": "Warranty can be arranged"
+  },
+  {
+    "listing_id": 11,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 12,
+    "price_aed": 35000,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 13,
+    "price_aed": 54500,
+    "mileage_km": 111000,
+    "body_type": "hatchback",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 14,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 15,
+    "price_aed": 1349999,
+    "mileage_km": 18845,
+    "body_type": "suv",
+    "color": "black",
+    "warranty": "Available"
+  },
+  {
+    "listing_id": 16,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": "red",
+    "warranty": null
+  },
+  {
+    "listing_id": 17,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "convertible",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 18,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 19,
+    "price_aed": null,
+    "mileage_km": 93000,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 20,
+    "price_aed": 21500,
+    "mileage_km": 164000,
+    "body_type": "convertible",
+    "color": "silver",
+    "warranty": null
+  },
+  {
+    "listing_id": 21,
+    "price_aed": null,
+    "mileage_km": 142774,
+    "body_type": "suv",
+    "color": "black",
+    "warranty": null
+  },
+  {
+    "listing_id": 22,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": "2 Year Warranty"
+  },
+  {
+    "listing_id": 23,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": "white",
+    "warranty": null
+  },
+  {
+    "listing_id": 24,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 25,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 26,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 27,
+    "price_aed": null,
+    "mileage_km": 75500,
+    "body_type": "suv",
+    "color": "silver",
+    "warranty": null
+  },
+  {
+    "listing_id": 28,
+    "price_aed": null,
+    "mileage_km": 0,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 29,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "pickup",
+    "color": null,
+    "warranty": "1 year warranty"
+  },
+  {
+    "listing_id": 30,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 41,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 42,
+    "price_aed": null,
+    "mileage_km": 23900,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 43,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 44,
+    "price_aed": 159750,
+    "mileage_km": 102000,
+    "body_type": "suv",
+    "color": null,
+    "warranty": "Warranty available"
+  },
+  {
+    "listing_id": 45,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": "1 year warranty"
+  },
+  {
+    "listing_id": 46,
+    "price_aed": null,
+    "mileage_km": 12000,
+    "body_type": "convertible",
+    "color": null,
+    "warranty": "A warranty can be arranged"
+  },
+  {
+    "listing_id": 47,
+    "price_aed": null,
+    "mileage_km": 122090,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 48,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": "white",
+    "warranty": null
+  },
+  {
+    "listing_id": 49,
+    "price_aed": null,
+    "mileage_km": 500,
+    "body_type": "convertible",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 50,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 51,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 52,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 53,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 54,
+    "price_aed": null,
+    "mileage_km": 0,
+    "body_type": "suv",
+    "color": "silver",
+    "warranty": "5 years or 150k"
+  },
+  {
+    "listing_id": 55,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 56,
+    "price_aed": null,
+    "mileage_km": 27000,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 57,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "convertible",
+    "color": "yellow",
+    "warranty": null
+  },
+  {
+    "listing_id": 58,
+    "price_aed": null,
+    "mileage_km": 58465,
+    "body_type": "coupe",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 59,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 60,
+    "price_aed": 32000,
+    "mileage_km": 36000,
+    "body_type": "hatchback",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 31,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 32,
+    "price_aed": 70000,
+    "mileage_km": 100271,
+    "body_type": "suv",
+    "color": null,
+    "warranty": "3rd Party (3 Years)"
+  },
+  {
+    "listing_id": 33,
+    "price_aed": null,
+    "mileage_km": 0,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 34,
+    "price_aed": null,
+    "mileage_km": 4000,
+    "body_type": "wagon",
+    "color": "silver",
+    "warranty": null
+  },
+  {
+    "listing_id": 35,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "hatchback",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 36,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 37,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "coupe",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 38,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "convertible",
+    "color": "yellow",
+    "warranty": null
+  },
+  {
+    "listing_id": 39,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": "blue",
+    "warranty": null
+  },
+  {
+    "listing_id": 40,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": "5 Years Gargash Auto Warranty"
+  },
+  {
+    "listing_id": 61,
+    "price_aed": 36999,
+    "mileage_km": 169859,
+    "body_type": "sedan",
+    "color": "blue",
+    "warranty": null
+  },
+  {
+    "listing_id": 62,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": "black",
+    "warranty": null
+  },
+  {
+    "listing_id": 63,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 64,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": "white",
+    "warranty": null
+  },
+  {
+    "listing_id": 65,
+    "price_aed": null,
+    "mileage_km": 71000,
+    "body_type": "coupe",
+    "color": null,
+    "warranty": "Warranty"
+  },
+  {
+    "listing_id": 66,
+    "price_aed": 79999,
+    "mileage_km": 0,
+    "body_type": "suv",
+    "color": null,
+    "warranty": "Under Agency Warranty 5 Years"
+  },
+  {
+    "listing_id": 67,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 68,
+    "price_aed": null,
+    "mileage_km": 34927,
+    "body_type": "suv",
+    "color": null,
+    "warranty": "Lexus Warranty"
+  },
+  {
+    "listing_id": 69,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": "white",
+    "warranty": null
+  },
+  {
+    "listing_id": 70,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": "black",
+    "warranty": null
+  },
+  {
+    "listing_id": 71,
+    "price_aed": null,
+    "mileage_km": 71000,
+    "body_type": "suv",
+    "color": "grey",
+    "warranty": "Agency warranty and service package until January 2027"
+  },
+  {
+    "listing_id": 72,
+    "price_aed": null,
+    "mileage_km": 13000,
+    "body_type": "sedan",
+    "color": "white",
+    "warranty": null
+  },
+  {
+    "listing_id": 73,
+    "price_aed": null,
+    "mileage_km": 45000,
+    "body_type": "coupe",
+    "color": null,
+    "warranty": "A warranty can be arranged"
+  },
+  {
+    "listing_id": 74,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "convertible",
+    "color": null,
+    "warranty": "Warranty DEC 2026"
+  },
+  {
+    "listing_id": 75,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 76,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 77,
+    "price_aed": null,
+    "mileage_km": 98000,
+    "body_type": "coupe",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 78,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 79,
+    "price_aed": null,
+    "mileage_km": 73000,
+    "body_type": "coupe",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 80,
+    "price_aed": null,
+    "mileage_km": 11000,
+    "body_type": "hatchback",
+    "color": "gray",
+    "warranty": "GCC WARRANTY AVAILABLE"
+  },
+  {
+    "listing_id": 81,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 82,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "convertible",
+    "color": null,
+    "warranty": "DEALER WARRANTY"
+  },
+  {
+    "listing_id": 83,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 84,
+    "price_aed": null,
+    "mileage_km": 0,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": "Warranty + Service"
+  },
+  {
+    "listing_id": 85,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": "Warranty & Service Contract available"
+  },
+  {
+    "listing_id": 86,
+    "price_aed": null,
+    "mileage_km": 0,
+    "body_type": "coupe",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 87,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 88,
+    "price_aed": 115000,
+    "mileage_km": 15858,
+    "body_type": "sedan",
+    "color": null,
+    "warranty": "3rd Party (2 Years)"
+  },
+  {
+    "listing_id": 89,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "convertible",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 90,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": "white",
+    "warranty": null
+  },
+  {
+    "listing_id": 91,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 92,
+    "price_aed": null,
+    "mileage_km": 23900,
+    "body_type": "suv",
+    "color": "white",
+    "warranty": "Warranty Includes: • Unlimited claim limit • 24/7 Roadside Assistance • Extended Coverage • Can be extended up to 3 years"
+  },
+  {
+    "listing_id": 93,
+    "price_aed": null,
+    "mileage_km": 271000,
+    "body_type": "suv",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 94,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "suv",
+    "color": "gold",
+    "warranty": null
+  },
+  {
+    "listing_id": 95,
+    "price_aed": 95000,
+    "mileage_km": 970,
+    "body_type": "suv",
+    "color": null,
+    "warranty": "3rd Party (2 Years)"
+  },
+  {
+    "listing_id": 96,
+    "price_aed": null,
+    "mileage_km": 71000,
+    "body_type": "suv",
+    "color": "grey",
+    "warranty": null
+  },
+  {
+    "listing_id": 97,
+    "price_aed": 299000,
+    "mileage_km": 65699,
+    "body_type": "convertible",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 98,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "van",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 99,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "hatchback",
+    "color": null,
+    "warranty": null
+  },
+  {
+    "listing_id": 100,
+    "price_aed": null,
+    "mileage_km": null,
+    "body_type": "convertible",
+    "color": null,
+    "warranty": "WARRANTY AVAILABLE"
+  }
+]
