@@ -198,6 +198,8 @@ def book_viewing(user_id: str, listing_id: int, date: str, time: str,
 # ---------------------------------------------------------------------------
 LEAD_FIELDS = ["user_id", "name", "phone", "budget_min", "budget_max",
                "preferences", "interested_listings", "status", "updated_at"]
+# The CSV also shows each lead's booked viewings, so a sales agent sees everything in one row
+CSV_FIELDS = LEAD_FIELDS[:-2] + ["viewings", "status", "updated_at"]
 
 
 def _lead_status(lead: dict, has_booking: bool) -> str:
@@ -239,10 +241,21 @@ def save_lead(user_id: str, name: str | None = None, phone: str | None = None,
             {f: lead.get(f) for f in LEAD_FIELDS},
         )
         all_leads = [dict(r) for r in conn.execute("SELECT * FROM leads ORDER BY updated_at")]
+        for row in all_leads:
+            bookings = conn.execute(
+                """SELECT b.slot_start, l.listing_id, l.year, l.make, l.model
+                   FROM bookings b JOIN listings l ON l.listing_id = b.listing_id
+                   WHERE b.user_id = ? ORDER BY b.slot_start""",
+                (row["user_id"],),
+            ).fetchall()
+            row["viewings"] = "; ".join(
+                f"{b['slot_start']} - {b['year']} {b['make']} {b['model']} (ID {b['listing_id']})"
+                for b in bookings
+            )
 
     # Mirror the leads table to a CSV, as the brief requires
     with open(LEADS_CSV, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=LEAD_FIELDS)
+        writer = csv.DictWriter(f, fieldnames=CSV_FIELDS)
         writer.writeheader()
         writer.writerows(all_leads)
 

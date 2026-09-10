@@ -118,7 +118,7 @@ The provided dataset differed from the brief in a few ways. Rather than block on
 
 ## Lead qualification
 
-Leads are updated as the conversation reveals information and mirrored to `data/leads.csv`:
+Leads are updated as the conversation reveals information and mirrored to `data/leads.csv`, one row per user, including any booked viewings (full booking records are kept in the SQLite `bookings` table):
 
 | Status | Meaning |
 |---|---|
