@@ -1,6 +1,7 @@
 # dubizzle Cars AI Assistant
 
 A conversational assistant that helps users explore a car inventory, book viewings, and get recognized when they come back. Built with **FastAPI**, **Streamlit**, **LiteLLM + Gemini**, **SQLite**, **uv**.
+
 ---
 
 ## Quick start
