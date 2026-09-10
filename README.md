@@ -47,49 +47,9 @@ On first start, the backend builds `data/dubizzle.db` from `data/cars.xlsx` and 
 
 ---
 
-## Architecture
+## Architecture choices
 
-```
-+--------------+   HTTP (JSON)   +----------------------------------------------+
-|  Streamlit   | --------------> |  FastAPI (main.py)                           |
-|  (app.py)    | <-------------- |   +-- agent.py  -- LiteLLM --> Gemini        |
-|  UI only     |                 |        |  tool-calling loop                  |
-+--------------+                 |        +-- tools.py   search, booking, leads |
-                                 |        +-- memory.py  sessions, profiles     |
-                                 |                 |                            |
-                                 |   SQLite (data/dubizzle.db) + leads.csv      |
-                                 +----------------------------------------------+
-```
-
-| File | Responsibility |
-|---|---|
-| `main.py` | API layer only: request validation (Pydantic) and routing |
-| `agent.py` | System prompt, tool definitions, and the LLM tool-calling loop |
-| `tools.py` | Inventory search, car details, viewing availability and booking, lead recording |
-| `memory.py` | Session persistence (short-term) and user profiles (long-term) |
-| `database.py` | SQLite schema and loading the Excel dataset |
-| `enrich.py` | One-time LLM extraction of price, mileage, body type, color, and warranty from descriptions |
-| `app.py` | Streamlit chat client; contains no AI or business logic |
-| `list_models.py` | Helper that lists Gemini models available to your key |
-
-### API endpoints
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/chat` | Send a message (`user_id`, `session_id`, `message`), get the agent's reply |
-| `GET` | `/cars` | List inventory |
-| `GET` | `/cars/{listing_id}` | Full details of one listing |
-| `GET` | `/users/{user_id}/profile` | What the system remembers about a user |
-| `GET` | `/sessions/{session_id}/messages` | Full history of a conversation |
-| `GET` | `/health` | Health check |
-
-Interactive documentation is available at http://localhost:8000/docs.
-
----
-
-## Why these choices
-
-**Client: Streamlit.** The goal is a product demo, so a reactive chat UI is closer to what a dubizzle user would actually experience than a notebook, and it makes the returning-user flow easy to show (a name field, a "New session" button, and a sidebar panel displaying what the assistant remembers). Streamlit contains no AI logic; it only renders and forwards messages, so it could be swapped for a mobile app without touching the backend. **Agent framework: LiteLLM with a hand-written tool loop** rather than a heavier framework like LangChain. The agent needs only a few tools and a simple loop, and writing it directly keeps the behavior transparent and easy to control, while LiteLLM keeps the model provider swappable through one line in `.env`. **Retrieval: function calling over SQL** rather than vector RAG or text-to-SQL. Users mostly filter on structured attributes (make, year, price, body type), which SQL handles exactly; a keyword filter over titles and descriptions covers features like "sunroof". With 100 listings, a vector database would add complexity without improving accuracy. Parameterized tool functions are also safer and more predictable than letting the model write raw SQL, and the model can only describe cars that a tool actually returned. **Memory: SQLite**, a single file with no setup, which stores listings, sessions, messages, bookings, leads, and users together.
+**Client: Streamlit**, because a chat UI is closer to the real user experience than a notebook and makes the returning-user flow easy to demonstrate; it holds no AI logic, so it could be replaced without touching the backend. **Agent framework: LiteLLM with a hand-written tool loop** instead of a heavier framework like LangChain, since a few tools and a simple loop are easier to control and debug, and LiteLLM keeps the model provider swappable. **Retrieval: function calling over SQL**, because users mostly filter on structured fields like make, year, and price, which SQL matches exactly, while a keyword filter covers descriptive features; a vector database adds little for 100 listings, and fixed tool functions are safer than model-written SQL. **Memory: SQLite**, a single zero-setup file holding listings, sessions, bookings, leads, and user profiles.
 
 ## Implementation
 
