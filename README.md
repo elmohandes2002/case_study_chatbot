@@ -29,15 +29,19 @@ Set-Content .env "GEMINI_API_KEY=your_key_here"
 Add-Content .env "GEMINI_MODEL=gemini/gemini-3.6-flash"
 ```
 
-Run the backend and the client in **two separate terminals**:
+Run the backend and the client in **two separate PowerShell terminals**:
 
 ```bash
-# Terminal 1 - FastAPI backend (http://localhost:8000, docs at /docs)
+# Terminal 1
 uv run uvicorn main:app --reload
 
 # Terminal 2 - Streamlit client (http://localhost:8501)
 uv run streamlit run app.py
 ```
+
+Kindly wait until you get this message on the first PowerShell terminal before using the Chatbot:
+
+<img width="393" height="57" alt="Screenshot 2026-09-11 185939" src="https://github.com/user-attachments/assets/d299266c-a27c-4f01-8bc7-abad62c82f3c" />
 
 Open http://localhost:8501, enter a name in the sidebar (this can be updated later to a proper sign up system, for now it functions as a username which will be used in another session to retrieve data about the client), and start chatting. To see long-term memory, chat for a bit, click **New session**, or reopen http://localhost:8501 and enter the same username and say "Hi".
 
