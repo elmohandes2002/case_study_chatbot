@@ -14,7 +14,7 @@ def new_session():
     st.session_state.messages = []
 
 
-# ---------------- Sidebar: who is chatting ----------------
+# Sidebar: who is chatting
 name = st.sidebar.text_input("Your name", placeholder="e.g. Mohamed")
 user_id = " ".join(name.strip().lower().split())
 
@@ -33,13 +33,13 @@ if not user_id:
     st.info("Enter your name in the sidebar to start chatting.")
     st.stop()
 
-# Show what the backend remembers about this user (useful for the demo)
+# Show what the backend remembers about this user
 profile = httpx.get(f"{BACKEND_URL}/users/{user_id}/profile", timeout=10)
 with st.sidebar.expander("What the assistant remembers"):
     if profile.status_code == 200:
         st.json(profile.json())
     else:
-        st.write("Nothing yet — this is a new user.")
+        st.write("Nothing yet - this is a new user.")
 
 # ---------------- Chat ----------------
 for msg in st.session_state.messages:

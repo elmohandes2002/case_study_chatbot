@@ -98,7 +98,7 @@ def get_car_details(listing_id: int) -> dict:
 # ---------------------------------------------------------------------------
 # Viewing bookings
 # ---------------------------------------------------------------------------
-UAE_TZ = timezone(timedelta(hours=4))  # UAE has no daylight saving
+UAE_TZ = timezone(timedelta(hours=4))  
 FIRST_SLOT_HOUR, LAST_SLOT_HOUR = 8, 19  # 1-hour slots: 08:00 ... 19:00 (ends 20:00)
 LEADS_CSV = database.DATA_DIR / "leads.csv"
 
