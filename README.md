@@ -4,9 +4,7 @@ A conversational assistant that helps users explore a car inventory, book viewin
 
 ---
 
-## Quick start
-
-**Prerequisites:**
+## Setup
 
 1. uv is an all-in-one Python package and project manager. Follow the instructions on the website to install uv based on your machine from here: [uv](https://docs.astral.sh/uv/getting-started/installation/). 
 
