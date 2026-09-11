@@ -55,7 +55,7 @@ On first start, the backend builds `data/dubizzle.db` from `data/cars.xlsx` and 
 
 The core idea is that the LLM never sees the whole inventory and never has to remember anything on its own. Each turn, the backend sends the system prompt, the last 20 messages, and a compact "cars shown so far" register (e.g. `#1 = listing ID 23: 2019 mercedes-benz c-class`), so references like "the first one" resolve to real listing IDs without resending long descriptions. Search results return short summaries; full descriptions are fetched only when the user asks about a specific car. Because the dataset stores price, mileage, and color only inside free text, a one-time enrichment pass (`enrich.py`) had Gemini extract them into nullable columns, with strict rules: values are extracted only if explicitly written, monthly installments are not treated as prices, and implausible values are rejected in code. Results are cached in `enrichment.json`, so no need to rerun that file. For long-term memory, a returning user's profile (name, budget, preferences, liked cars, upcoming viewings, and recent requests) is assembled from the leads, bookings, and messages tables and injected into the prompt, costing zero extra LLM calls. Booking rules are enforced in code, not just in the prompt: Sundays, past times, out-of-hours slots, and double bookings are rejected, and the backend supplies `user_id` to booking and lead tools itself, so the model cannot act on another user's behalf.
 
-With more time, I would add: hybrid search with embeddings for some descriptive queries like ("something sporty but practical") match listings by meaning rather than exact keywords; LLM-generated session summaries for richer long-term memory; streaming responses; proper authentication instead of name-based identification; real calendar integration with confirmations by SMS or email; showing listing photos in the chat; an evaluation suite of test conversations to measure grounding and guardrail adherence automatically; and Docker packaging. I would also write down functional requirements as well as create UML diagrams so that engineers can better understand the system requirements and so that I make sure I covered all the functional requirements as per the request from client for example. I would also spend time testing the code to make sure that I have caught all the errors using unit testing.
+With more time, I would add: hybrid search with embeddings for some descriptive queries like ("something sporty but practical") match listings by meaning rather than exact keywords; LLM-generated session summaries for richer long-term memory; streaming responses; proper authentication instead of name-based identification; real calendar integration with confirmations by SMS or email; showing listing photos in the chat; an evaluation suite of test conversations to measure grounding and guardrail adherence automatically; and Docker packaging. I would also write down functional requirements as well as create UML diagrams so that engineers can better understand the system requirements and so that I make sure I covered all the functional requirements as per the request from client for example. I would also spend time testing the code to make sure that I have caught all the errors using unit testing. One more thing I would improve is the wait time for the LLM by incorporating techniques such as summarization to reduce token size, and choosing a smaller or faster model and choosing the appropriate model accordingly.
 
 ---
 
@@ -78,7 +78,23 @@ The system prompt restricts the agent to cars and dubizzle services, avoids ment
 ## Screenshots
 
 ### 1. Multi-turn inventory conversation
-<!-- Add screenshot: search -> follow-up about "the first one" -> warranty question -> booking -->
+
+<img width="1599" height="852" alt="Screenshot 2026-09-11 185723" src="https://github.com/user-attachments/assets/09256fd8-64ff-4637-b4ca-07e8e91bf866" />
+
+<img width="1453" height="734" alt="Screenshot 2026-09-11 190855" src="https://github.com/user-attachments/assets/e52d79f3-3913-4b31-81e4-8074a0d9331a" />
+
+<img width="1242" height="642" alt="Screenshot 2026-09-11 190948" src="https://github.com/user-attachments/assets/4b408ee3-3be4-409f-b553-e40ebc790ab9" />
+
+<img width="1214" height="737" alt="Screenshot 2026-09-11 190937" src="https://github.com/user-attachments/assets/a4826a2f-521c-4b07-aa92-739a06d8bed0" />
+
+<img width="1248" height="699" alt="Screenshot 2026-09-11 191044" src="https://github.com/user-attachments/assets/b2c3a873-d8f8-48c3-9007-836e4d36bc45" />
+
+<img width="1365" height="608" alt="Screenshot 2026-09-11 191221" src="https://github.com/user-attachments/assets/fa71febb-7e86-4408-903d-162fcfb753de" />
+
+<img width="1330" height="680" alt="Screenshot 2026-09-11 191417" src="https://github.com/user-attachments/assets/0801af99-a3a1-4f67-aa2b-c79ec5d2343b" />
+
+<img width="1575" height="83" alt="Screenshot 2026-09-11 191607" src="https://github.com/user-attachments/assets/24113dba-c7d0-4d0e-8164-8351f6d9c02e" />
+
 
 ### 2. Returning user recalled in a new session
-<!-- Add screenshot: new session, "Hi" -> greeted by name with budget/preferences/viewing recalled, sidebar memory panel open -->
+
