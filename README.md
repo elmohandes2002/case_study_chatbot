@@ -81,9 +81,9 @@ The system prompt restricts the agent to cars and dubizzle services, avoids ment
 
 <img width="1599" height="852" alt="Screenshot 2026-09-11 185723" src="https://github.com/user-attachments/assets/09256fd8-64ff-4637-b4ca-07e8e91bf866" />
 
-<img width="1453" height="734" alt="Screenshot 2026-09-11 190855" src="https://github.com/user-attachments/assets/e52d79f3-3913-4b31-81e4-8074a0d9331a" />
-
 <img width="1242" height="642" alt="Screenshot 2026-09-11 190948" src="https://github.com/user-attachments/assets/4b408ee3-3be4-409f-b553-e40ebc790ab9" />
+
+<img width="1453" height="734" alt="Screenshot 2026-09-11 190855" src="https://github.com/user-attachments/assets/e52d79f3-3913-4b31-81e4-8074a0d9331a" />
 
 <img width="1214" height="737" alt="Screenshot 2026-09-11 190937" src="https://github.com/user-attachments/assets/a4826a2f-521c-4b07-aa92-739a06d8bed0" />
 
