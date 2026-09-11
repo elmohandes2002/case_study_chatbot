@@ -12,11 +12,9 @@ A conversational assistant that helps users explore a car inventory, book viewin
 
 2. Free Gemini API key from here: [Google AI Studio](https://aistudio.google.com/apikey).
 
-3. Clone and install dependencies (uv creates the virtual environment and installs all necessary packages. the packages used were: fastapi, uvicorn, streamlit, httpx, litellm, tenacity, pandas, openpyxl, python-dotenv)
+3. Clone this repository and install dependencies using the following command (uv creates the virtual environment and installs all necessary packages. the packages used were: fastapi, uvicorn, streamlit, httpx, litellm, tenacity, pandas, openpyxl, python-dotenv)
 
 ```bash
-git clone <REPO_URL>
-cd dubizzle-car-assistant
 uv sync
 ```
 
