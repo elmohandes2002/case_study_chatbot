@@ -87,8 +87,6 @@ The system prompt restricts the agent to cars and dubizzle services, avoids ment
 
 <img width="1242" height="642" alt="Screenshot 2026-09-11 190948" src="https://github.com/user-attachments/assets/4b408ee3-3be4-409f-b553-e40ebc790ab9" />
 
-<img width="1248" height="699" alt="Screenshot 2026-09-11 191044" src="https://github.com/user-attachments/assets/b2c3a873-d8f8-48c3-9007-836e4d36bc45" />
-
 <img width="1365" height="608" alt="Screenshot 2026-09-11 191221" src="https://github.com/user-attachments/assets/fa71febb-7e86-4408-903d-162fcfb753de" />
 
 <img width="1330" height="680" alt="Screenshot 2026-09-11 191417" src="https://github.com/user-attachments/assets/0801af99-a3a1-4f67-aa2b-c79ec5d2343b" />
@@ -98,3 +96,4 @@ The system prompt restricts the agent to cars and dubizzle services, avoids ment
 
 ### 2. Returning user recalled in a new session
 
+<img width="1248" height="699" alt="Screenshot 2026-09-11 191044" src="https://github.com/user-attachments/assets/b2c3a873-d8f8-48c3-9007-836e4d36bc45" />
